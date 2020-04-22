@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    name: wanka
+    url: jdbc:mysql://localhost:3306/wanka?serverTimezone=GMT
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jpa:
+      hibernate:
+        dll-auto: update
+      show-sql: true
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+      exclude: WEB-INF/**
+    freemarker:
+      cache: false
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.wsj.wanka.bean
+  configuration:
+      map-underscore-to-camel-case: true
+
+server:
+  port: 8090
+#  servlet:
+#    context-path: /api
